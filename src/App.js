@@ -52,12 +52,19 @@ const App = (props) => {
   }
 
   const luminanceHandler = (rgb) => {
-
+    const luma = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;
+    console.log('luma',luma)
+    if(luma>=100){
+      setTextColorState({color:[{textColor: 'white'}]})
+    }
+    else{
+      setTextColorState({color:[{textColor: 'black'}]})
+    }
   }
 
   return (
     <div className="App" style={{backgroundColor: hexState.color[0].hex}} onClick={hexColorHandler}>
-      <h1> Click anywhere to change color!</h1>
+      <h1 style={{color: textColorstate.color[0].textColor}}> Click anywhere to change color!</h1>
       <Hex color={hexState.color[0].hex}/>
       <Rgb/>
     </div>
