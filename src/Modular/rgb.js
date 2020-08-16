@@ -2,9 +2,9 @@ import React from 'react'
 
 const rgb = (props) =>{
     return(
-        <>
-            <h1 style={{color: props.textColor}}>{props.rgbColor}</h1>
-        </>
+        <div className={'rgbtext'} onClick={(event)=>event.stopPropagation()}>
+            <h3 style={{color: props.textColor}}>{props.rgbColor}</h3>
+        </div>
     )
 }
 

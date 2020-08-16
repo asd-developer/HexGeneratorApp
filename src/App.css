@@ -13,3 +13,18 @@
 .spacer{
   padding-top: 200px;
 }
+
+h1{
+  font-size: 45px;
+}
+h2{
+  font-size: 35px;
+}
+
+.preventselection{
+  user-select: none
+}
+
+.rgbtext{
+  padding-bottom: 30px;
+}
