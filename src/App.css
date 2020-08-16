@@ -4,3 +4,12 @@
   width: 100vw;
   background-color: lightsteelblue;
 }
+
+.text{
+  padding-top: 20px;
+  font-family: "Lexend Deca";
+}
+
+.spacer{
+  padding-top: 200px;
+}

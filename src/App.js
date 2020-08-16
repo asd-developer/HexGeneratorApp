@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Hex from './Modular/hex'
 import Rgb from './Modular/rgb'
 import './App.css';
+import rgb from "./Modular/rgb";
 
 const App = (props) => {
 
@@ -20,7 +21,7 @@ const App = (props) => {
   // RGB STATE
   const [rgbState, setrgbState] = React.useState({
     color: [
-      {r: '',g: '',b: ''}
+      {rgb: ''}
     ]
   })
 
@@ -35,7 +36,7 @@ const App = (props) => {
   const hexColorHandler = () =>{
     const hexGenerator = '#'+(Math.random()*0xFFFFF << 0).toString(16).padStart(6,'0');
     setHexState({color:[{hex: hexGenerator}]});
-    hexToRGB(hexState.color[0].hex)
+    hexToRGB(hexGenerator)
   }
 
   const hexToRGB = (c) =>{
@@ -45,16 +46,17 @@ const App = (props) => {
       }
       c = '0x'+c.substring(1)
       const rgb = {r: (c>>16)&255, g: (c>>8)&255, b: c&255}
-      console.log(rgb)
+      const rgbResult = 'rgb('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+')';
+      setrgbState({color: [{rgb: rgbResult}]});
+      console.log(rgbState.color[0].rgb)
       luminanceHandler(rgb)
-      setrgbState({color: {r: (c>>16)&255, g: (c>>8)&255, b: c&255}})
     }
   }
 
   const luminanceHandler = (rgb) => {
     const luma = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;
     console.log('luma',luma)
-    if(luma>=100){
+    if(luma <= 100){
       setTextColorState({color:[{textColor: 'white'}]})
     }
     else{
@@ -64,9 +66,11 @@ const App = (props) => {
 
   return (
     <div className="App" style={{backgroundColor: hexState.color[0].hex}} onClick={hexColorHandler}>
-      <h1 style={{color: textColorstate.color[0].textColor}}> Click anywhere to change color!</h1>
-      <Hex color={hexState.color[0].hex}/>
-      <Rgb/>
+      <div className={'spacer'}>
+        <h1 className={'text'} style={{color: textColorstate.color[0].textColor}}> Click anywhere to change color!</h1>
+        <Hex textColor={textColorstate.color[0].textColor} hexColor={hexState.color[0].hex}/>
+        <Rgb textColor={textColorstate.color[0].textColor} rgbColor={rgbState.color[0].rgb}/>
+      </div>
     </div>
   );
 }
