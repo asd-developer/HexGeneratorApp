@@ -4,7 +4,7 @@ import Rgb from './Modular/rgb'
 import './App.css';
 
 const App = (props) => {
-
+//RUNS ON START
   useEffect(()=>{hexColorHandler()},[]);
 
 // STATE HOOKS
@@ -36,6 +36,7 @@ const App = (props) => {
     hexToRGB(hexGenerator)
   }
 
+  //CONVERTS HEX TO RGB
   const hexToRGB = (c) =>{
     if(/^#([a-f0-9]{3}){1,2}$/.test(c)){
       if(c.length===4){
@@ -49,7 +50,7 @@ const App = (props) => {
       luminanceHandler(rgb)
     }
   }
-
+  //CHECKS THE LUMINANCE OF THE RGB AND CHANGES TEXTCOLOR TO WHITE OR BLACK ACCORDINGLY
   const luminanceHandler = (rgb) => {
     const luma = 0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b;
     console.log('luma',luma)
