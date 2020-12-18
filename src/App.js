@@ -64,7 +64,6 @@ const App = (props) => {
 
   return (
     <div className="App" style={{backgroundColor: hexState.color[0].hex}} onClick={hexColorHandler}>
-
       <div className={'spacer'}>
         <h1 className={'text preventselection'} style={{color: textColorstate.color[0].textColor}}> Click anywhere to change color!</h1>
         <Hex textColor={textColorstate.color[0].textColor} hexColor={hexState.color[0].hex} />
