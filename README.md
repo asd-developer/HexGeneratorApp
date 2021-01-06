@@ -4,6 +4,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple hexadecimal color generator app for when you don't know what color to choose for your website. Just a simple assistant tool that I also used to practice hosting in AWS.
 
+### Project dependencies
+
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "body-parser": "^1.19.0",
+    "core-util-is": "^1.0.2",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
